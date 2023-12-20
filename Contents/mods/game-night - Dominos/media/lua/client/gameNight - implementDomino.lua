@@ -15,9 +15,20 @@ for i=setSize, 0, -1 do
 
         table.insert(pieces, dominoID)
 
-        gamePieceAndBoardHandler.registerSpecial(dominoID, { actions = { flipPiece=true }, altState="Domino_Flipped", shiftAction = "flipPiece" })
+        gamePieceAndBoardHandler.registerSpecial(dominoID, { actions = { flipPiece=true, turnDomino=true }, altState="Domino_Flipped", shiftAction = "flipPiece" })
     end
     setSize=setSize-1
 end
 
 gamePieceAndBoardHandler.registerTypes(pieces)
+
+
+---Define new function under `gamePieceAndBoardHandler`
+function gamePieceAndBoardHandler.turnDomino(gamePiece, player)
+    local current = gamePiece:getModData()["gameNight_rotation"] or 0
+
+    local state = (current==0) and 90 or 0
+
+    gamePieceAndBoardHandler.playSound(gamePiece, player)
+    gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, gamePiece, {gamePieceAndBoardHandler.setModDataValue, gamePiece, "gameNight_rotation", state})
+end

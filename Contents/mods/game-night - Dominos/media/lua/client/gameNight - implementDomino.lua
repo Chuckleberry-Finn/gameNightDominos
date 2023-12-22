@@ -27,7 +27,8 @@ gamePieceAndBoardHandler.registerTypes(pieces)
 function gamePieceAndBoardHandler.turnDomino(gamePiece, player)
     local current = gamePiece:getModData()["gameNight_rotation"] or 0
 
-    local state = (current==0) and 90 or 0
+    local states = {[0]=90,[90]=180,[180]=270,[270]=0}
+    local state = states[current]
 
     gamePieceAndBoardHandler.playSound(gamePiece, player)
     gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, gamePiece, {gamePieceAndBoardHandler.setModDataValue, gamePiece, "gameNight_rotation", state})

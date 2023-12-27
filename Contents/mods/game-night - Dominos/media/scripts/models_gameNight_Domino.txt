@@ -1,6 +1,7 @@
 module Base
 {
 
+    model Domino_Flipped { mesh = WorldItems/dominos, texture = Item_OutOfPlayTextures/Domino_flipped, scale = 0.005, }
     model Domino_6_6 { mesh = WorldItems/dominos, texture = Item_OutOfPlayTextures/Domino_6_6, scale = 0.005, }
     model Domino_5_6 { mesh = WorldItems/dominos, texture = Item_OutOfPlayTextures/Domino_5_6, scale = 0.005, }
     model Domino_4_6 { mesh = WorldItems/dominos, texture = Item_OutOfPlayTextures/Domino_4_6, scale = 0.005, }

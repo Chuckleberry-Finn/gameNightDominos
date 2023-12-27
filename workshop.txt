@@ -11,7 +11,8 @@ description=[h2][b]Comments, Suggestions, Issues, Bugs? [url=https://github.com/
 description=
 description=[url=https://github.com/Chuckleberry-Finn/game-night][img]https://raw.githubusercontent.com/Chuckleberry-Finn/chuckImages/main/steamNoGithubYes.png[/img][/url]
 description=
-description=
+description=[h3][i]Additional Credits:
+description=Nurver, and Ash[/i][/h3]
 description=
 description=[h3]Copyright 2023 Chuckleberry Finn. This item is not authorized for posting on Steam, except under the Steam account named Chuckleberry Finn.[/h3]
 tags=Build 41;Misc;Multiplayer;Pop Culture;Silly/Fun

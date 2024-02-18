@@ -30,6 +30,16 @@ function gamePieceAndBoardHandler.turnDomino(gamePiece, player)
     local states = {[0]=90,[90]=180,[180]=270,[270]=0}
     local state = states[current]
 
+    if not state then
+        local closest = false
+        for id,angle in pairs(states) do
+            if (not closest) or (closest and math.abs(angle-current) < states[closest]) then
+                closest = id
+            end
+        end
+        state = states[closest]
+    end
+
     gamePieceAndBoardHandler.playSound(gamePiece, player)
     gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, gamePiece, {gamePieceAndBoardHandler.setModDataValue, gamePiece, "gameNight_rotation", state})
 end

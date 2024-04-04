@@ -15,7 +15,11 @@ for i=setSize, 0, -1 do
 
         table.insert(pieces, dominoID)
 
-        gamePieceAndBoardHandler.registerSpecial(dominoID, { actions = { flipPiece=true, turnDomino=true }, altState="Domino_Flipped", shiftAction = "flipPiece" })
+        gamePieceAndBoardHandler.registerSpecial(dominoID, {
+            actions = { flipPiece=true, turnDomino=true },
+            altState="Domino_Flipped", shiftAction = "flipPiece",
+            alternateStackRendering = { func="DrawTextureCardFace", depth=10, rgb = {0.62, 0.55, 0.55} }
+        })
     end
     setSize=setSize-1
 end

@@ -5,3 +5,7 @@
 [ 4/4/24 - TCG+Volumetric ]
 - Added volumetric rendering to dominoes.
 [ ------ ]
+
+[ 5/18/24 ]
+- Tweaks and underlying updates in preparation for new Add-On.
+[ ------ ]

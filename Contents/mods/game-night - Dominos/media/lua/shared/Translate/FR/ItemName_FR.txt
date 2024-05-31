@@ -29,5 +29,5 @@ ItemName_FR = {
     ItemName_Base.Domino_0_1 = "Domino",
     ItemName_Base.Domino_0_0 = "Domino",
 
-    ItemName_Base.DominoBox = "BoÃ®te de dominos",
+    ItemName_Base.DominoBox = "Boîte de dominos",
 }

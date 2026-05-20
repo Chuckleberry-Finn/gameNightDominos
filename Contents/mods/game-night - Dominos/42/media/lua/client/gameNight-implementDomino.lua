@@ -3,9 +3,7 @@
 --- CATAN includes 'game pieces' rather than *just* cards - scroll to the bottom for more info on those.
 --- MONOPOLY includes 'alternative' names/icons for cards that will either have the same name or look the same but operate differently.
 
-local gamePieceAndBoardHandler = require "gameNight - gamePieceAndBoardHandler"
-
-local pieces = {}
+local gamePieceHandler = require("gameNight-gamePieceHandler.lua")
 
 local setSize = 6 --- sets are unique pairs of 0 to 6
 ---parsing through combinations calling registerSpecial
@@ -13,9 +11,7 @@ for i=setSize, 0, -1 do
     for ii=setSize, 0, -1 do
         local dominoID = "Base.Domino_"..ii.."_"..i
 
-        table.insert(pieces, dominoID)
-
-        gamePieceAndBoardHandler.registerSpecial(dominoID, {
+        gamePieceHandler.registerSpecial(dominoID, {
             actions = { flipPiece=true, turnDomino=true },
             altState="Domino_Flipped", shiftAction = "flipPiece",
             alternateStackRendering = { func="DrawTextureCardFace", depth=6, rgb = {0.98, 0.88, 0.88} }
@@ -24,11 +20,8 @@ for i=setSize, 0, -1 do
     setSize=setSize-1
 end
 
-gamePieceAndBoardHandler.registerTypes(pieces)
-
-
----Define new function under `gamePieceAndBoardHandler`
-function gamePieceAndBoardHandler.turnDomino(gamePiece, player)
+---Define new function under `gamePieceHandler`
+function gamePieceHandler.turnDomino(gamePiece, player)
     local current = gamePiece:getModData()["gameNight_rotation"] or 0
 
     local states = {[0]=90,[90]=180,[180]=270,[270]=0}
@@ -44,6 +37,6 @@ function gamePieceAndBoardHandler.turnDomino(gamePiece, player)
         state = states[closest]
     end
 
-    gamePieceAndBoardHandler.playSound(gamePiece, player)
-    gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, gamePiece, {gamePieceAndBoardHandler.setModDataValue, gamePiece, "gameNight_rotation", state})
+    gamePieceHandler.playSound(gamePiece, player)
+    gamePieceHandler.pickupAndPlaceGamePiece(player, gamePiece, {gamePieceHandler.setModDataValue, gamePiece, "gameNight_rotation", state})
 end

@@ -27,5 +27,6 @@
     "Base.Domino_1_1": "Domino",
     "Base.Domino_0_1": "Domino",
     "Base.Domino_0_0": "Domino",
-    "Base.DominosBox": "Dominos Box"
+    "Base.DominosBox": "Dominos Box",
+    "Base.DominosBox_sealed": "Dominos Box (Sealed)"
 }
